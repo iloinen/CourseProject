@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div id="container">
+    <div class="form">
+        <h1>Login</h1>
+        <p data-th-if="${loginError}" class="error">Wrong username or password.</p>
+        <form class="form" data-th-action="@{/login}" method="post">
+            <input type="text" data-th-name="username" placeholder="username">
+            <input type="password" data-th-name="password" placeholder="password">
+            <input class="send_button" type="submit" value="Send">
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

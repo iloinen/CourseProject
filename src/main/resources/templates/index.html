@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div id="container">
+    <div id="menubar">
+        <div id="menu_main">
+            <p>Home</p>
+            <a data-th-href="@{/register}">Register</a>
+            <a data-sec-authorize="!isAuthenticated()" data-th-href="@{/login}">Login</a>
+        </div>
+        <div id="logout" data-sec-authorize="isAuthenticated()">
+            <form data-th-action="@{/logout}" method="post">
+                <input type="submit" value="Logout">
+            </form>
+        </div>
+    </div>
+
+    <div id="content">
+        <h1>Home Page</h1>
+        <p>This is <a href="https://google.com">The Google</a> - visit!</p>
+        <p data-th-text="${first}"></p>
+        <p data-th-text="${second}"></p>
+        <p data-th-text="${third}"></p>
+    </div>
+</div>
+
+</body>
+
+</html>
