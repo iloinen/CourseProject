@@ -2,6 +2,9 @@ package app.services;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * This is not necessary BTW... But... why not?
+ */
 @Service
 public class TextService {
 
