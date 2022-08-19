@@ -33,7 +33,7 @@
                 <th>Description</th>
             </tr>
             <tr data-th-each="lesson : ${lessons}">
-                <td data-th-text="${lesson.title}"></td>
+                <td><a data-th-href="@{/lessons/{id}(id=${lesson.id})}" data-th-text="${lesson.title}"></a></td>
                 <td data-th-text="${lesson.description}"></td>
             </tr>
       </table>
