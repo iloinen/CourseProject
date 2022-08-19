@@ -14,9 +14,9 @@ public class DataHolder {
     @Bean
     private List<Lesson> createLessons() {
         return Arrays.asList(
-                new Lesson("A Java alapjai"),
-                new Lesson("Az OOP alapjai"),
-                new Lesson("A Spring alapjai")
+                new Lesson("A Java alapjai", "A Java programozási nyelv alapjai: építőkockái, szintaxisa stb."),
+                new Lesson("Az OOP alapjai", "Az objektum-orientált programozásról általánosságban és a Java-ban."),
+                new Lesson("A Spring alapjai", "Tavasz Irén (aka Szarvas)")
         );
     }
 

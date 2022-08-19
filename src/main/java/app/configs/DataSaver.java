@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -43,12 +42,19 @@ public class DataSaver implements ApplicationRunner {
     @Transactional
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        saveLessons();
-        saveCategories();
-        saveAnswerBases();
+        if (shouldSave()) {
+            saveLessons();
+            saveCategories();
+            saveAnswerBases();
 
-        saveTasks();
-        saveTaskAnswers();
+            saveTasks();
+            saveTaskAnswers();
+        }
+    }
+
+    @Transactional
+    public boolean shouldSave() {
+        return em.createQuery("SELECT l FROM Lesson l", Lesson.class).getResultList().size() == 0;
     }
 
     @Transactional
