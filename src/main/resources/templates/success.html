@@ -14,23 +14,10 @@
         <div id="menu_main">
             <a data-th-href="@{/home}">Home</a>
             <a data-th-href="@{/register}">Register</a>
-
-            <!-- WE HAVE NOT YET LEARNED THIS! -->
-            <!--
-                Thymeleaf extras has a "data-sec-authorize" attribute
-                if the user isAuthenticated() - that means the user is logged in
-                so I display the "Login" link only for users who are not logged in
-                and I display the "Logout" form only for users who are logged in
-            -->
             <a data-sec-authorize="!isAuthenticated()" data-th-href="@{/login}">Login</a>
+            <a data-th-href="@{/lessons}">Lessons</a>
         </div>
         <div id="logout" data-sec-authorize="isAuthenticated()">
-
-            <!-- LOGOUT FORM -->
-            <!--
-                logging out must be a POST method
-                so I made this form for Logout, that only has a single "button"
-            -->
             <form data-th-action="@{/logout}" method="post">
                 <input type="submit" value="Logout">
             </form>

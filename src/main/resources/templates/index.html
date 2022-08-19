@@ -15,6 +15,7 @@
             <p>Home</p>
             <a data-th-href="@{/register}">Register</a>
             <a data-sec-authorize="!isAuthenticated()" data-th-href="@{/login}">Login</a>
+            <a data-th-href="@{/lessons}">Lessons</a>
         </div>
         <div id="logout" data-sec-authorize="isAuthenticated()">
             <form data-th-action="@{/logout}" method="post">

@@ -14,13 +14,6 @@
         <h1>Login</h1>
         <p data-th-if="${loginError}" class="error">Wrong username or password.</p>
 
-        <!-- LOGIN FORM BELOW -->
-        <!--
-            has two input fields: one for the username and one for the password
-            "data-th-name" is used to tell Spring Security that what is the username and what is the password
-            Spring Security searches for "username" and "password"
-        -->
-
         <form class="form" data-th-action="@{/login}" method="post">
             <input type="text" data-th-name="username" placeholder="username">
             <input type="password" data-th-name="password" placeholder="password">
