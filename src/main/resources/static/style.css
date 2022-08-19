@@ -9,6 +9,7 @@
     --orange: #CC7832;
     --yellow: #FFC66D;
     --green: #629755;
+    --smooth_green: #485848;
     --purple: #9876AA;
     --gray: #808080;
     --red: #BC3F3C;
@@ -117,4 +118,26 @@ h1 {
 
 .error {
     color: var(--red);
+}
+
+table {
+    width: 100%;
+}
+
+th:first-child {
+    width: 25%;
+}
+
+table, th, td {
+    border: 1px solid var(--gray);
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--smooth_green);
 }
