@@ -1,9 +1,6 @@
 package app.models.quiz;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,17 +13,21 @@ public class Lesson {
 
     private String title;
 
+    @Column(length = 400)
+    private String description;
+
     @OneToMany(mappedBy = "lesson")
     private List<Task> tasks;
 
     public Lesson() {}
 
-    public Lesson(String title) {
+    public Lesson(String title, String description) {
         this.title = title;
+        this.description = description;
     }
 
-    public Lesson(long id, String title, List<Task> tasks) {
-        this(title);
+    public Lesson(long id, String title, String description, List<Task> tasks) {
+        this(title, description);
         this.id = id;
         this.tasks = tasks;
     }
@@ -45,6 +46,14 @@ public class Lesson {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String shortDescription) {
+        this.description = shortDescription;
     }
 
     public List<Task> getTasks() {
