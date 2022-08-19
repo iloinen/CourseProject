@@ -16,7 +16,6 @@ public class LessonController {
 
     @GetMapping(value = {"/lessons"})
     public String getAllLessons(Model model) {
-        // TODO
         model.addAttribute("lessons", lessonService.findAll());
         return "lessons";
     }
