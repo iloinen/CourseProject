@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div id="menubar" data-th-fragment="base_menu(html_name)">
+    <div id="menu_main">
+
+        <p data-th-if="${html_name} == 'index'">Home</p>
+        <a data-th-unless="${html_name} == 'index'" data-th-href="@{/home}">Home</a>
+
+        <a data-th-unless="${html_name} == 'saveUser'" data-th-href="@{/register}">Register</a>
+
+        <a data-sec-authorize="!isAuthenticated()" data-th-href="@{/login}">Login</a>
+
+        <p data-th-if="${html_name} == 'lessons'">Lessons</p>
+        <a data-th-unless="${html_name} == 'lessons'" data-th-href="@{/lessons}">Lessons</a>
+    </div>
+    <div id="logout" data-sec-authorize="isAuthenticated()">
+        <form data-th-action="@{/logout}" method="post">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

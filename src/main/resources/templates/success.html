@@ -10,19 +10,7 @@
 <body>
 
 <div id="container">
-    <div id="menubar">
-        <div id="menu_main">
-            <a data-th-href="@{/home}">Home</a>
-            <a data-th-href="@{/register}">Register</a>
-            <a data-sec-authorize="!isAuthenticated()" data-th-href="@{/login}">Login</a>
-            <a data-th-href="@{/lessons}">Lessons</a>
-        </div>
-        <div id="logout" data-sec-authorize="isAuthenticated()">
-            <form data-th-action="@{/logout}" method="post">
-                <input type="submit" value="Logout">
-            </form>
-        </div>
-    </div>
+    <div data-th-insert="fragments :: base_menu('success')"></div>
 
     <div id="content">
         <p>Hello, <span data-th-text="${username}"></span>!</p>
