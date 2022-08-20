@@ -12,7 +12,7 @@
 <div id="container">
     <div data-th-insert="fragments :: base_menu('lessons_one')"></div>
 
-    <div id="content" data-th-object="${lesson}">
+    <div id="content">
         <h1 data-th-text="${practice} == null ? 'No lesson' : ${practice.lessonTitle}"></h1>
 
         <p data-th-if="${errorMsg} != null" data-th-text="${errorMsg}"></p>

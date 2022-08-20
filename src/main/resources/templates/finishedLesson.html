@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Finished!</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div id="container">
+    <div data-th-insert="fragments :: base_menu('lessons_one')"></div>
+
+    <div id="content">
+        <h1>Mistakes</h1>
+
+        <p data-th-if="${mistakes} == null" data-th-text="'No mistakes, grat!'"></p>
+
+        <ul data-th-unless="${mistakes} == null" data-th-each="mistake : ${mistakes}">
+            <li data-th-text="${mistake.question} + ' Wrong answer: ' + ${mistake.studentAnswer}"></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>
