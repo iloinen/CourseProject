@@ -35,7 +35,18 @@ public class DataHolder {
                 new AnswerBase("String"),
                 new AnswerBase("int"),
                 new AnswerBase("char"),
-                new AnswerBase("byte")
+                new AnswerBase("byte"),
+                new AnswerBase("long"),
+                new AnswerBase("+"),
+                new AnswerBase("-"),
+                new AnswerBase("*"),
+                new AnswerBase("/"),
+                new AnswerBase("%"),
+                new AnswerBase("for"),
+                new AnswerBase("while"),
+                new AnswerBase("do"),
+                new AnswerBase("break"),
+                new AnswerBase("continue")
         );
     }
 
@@ -58,11 +69,14 @@ public class DataHolder {
         );
     }
 
-    public List<Task> createTasks(Lesson lesson, String q1, String q2, int catId) {
-        return Arrays.asList(
-                createTask(q1, lesson, createCategories().get(catId)),
-                createTask(q2, lesson, createCategories().get(catId))
-        );
+    public List<Task> createTasks(Lesson lesson, int catId, String... questions) {
+        List<Task> tasks = new ArrayList<>();
+
+        for (String question : questions) {
+            tasks.add(createTask(question, lesson, createCategories().get(catId)));
+        }
+
+        return tasks;
     }
 
     private Task createTask(String question, Lesson lesson, TaskCategory... categories) {

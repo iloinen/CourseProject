@@ -93,9 +93,11 @@ public class DataSaver implements ApplicationRunner {
 
     @Transactional
     public void saveTasks() {
-        List<Task> tasksForJava = holder.createTasks(lessons.get(0), "Melyik nem primitív adattípus?", "Hogy vagy?", 0);
-        List<Task> tasksForOOP = holder.createTasks(lessons.get(1), "Melyik nem láthatósági jelző?", "Hogy vagy?", 1);
-        List<Task> tasksForSpring = holder.createTasks(lessons.get(2), "Melyik nem tesz bean-né?", "Hogy vagy?", 2);
+        List<Task> tasksForJava = holder.createTasks(lessons.get(0), 0, "Melyik nem primitív adattípus?",
+                "Melyik nem egész szám adattípus?", "Melyik a modulo operátor?",
+                "Melyik kulcsszó használatos a ciklus megszakításához?");
+        List<Task> tasksForOOP = holder.createTasks(lessons.get(1), 1, "Melyik nem láthatósági jelző?", "Hogy vagy?");
+        List<Task> tasksForSpring = holder.createTasks(lessons.get(2), 2, "Melyik nem tesz bean-né?", "Hogy vagy?");
 
         saveTasks(lessons.get(0), tasksForJava);
         saveTasks(lessons.get(1), tasksForOOP);
@@ -127,6 +129,9 @@ public class DataSaver implements ApplicationRunner {
     @Transactional
     public void saveTaskAnswers() {
         saveTaskAnswers(tasksForJava.get(0), 1, "boolean", "String", "int", "char", "byte");
+        saveTaskAnswers(tasksForJava.get(1), 0, "boolean", "long", "int", "char", "byte");
+        saveTaskAnswers(tasksForJava.get(2), 4, "+", "-", "*", "/", "%");
+        saveTaskAnswers(tasksForJava.get(3), 3, "for", "while", "do", "break", "continue");
         saveTaskAnswers(tasksForOOP.get(0), 4, "public", "protected", "private", "package private", "static");
         saveTaskAnswers(tasksForSpring.get(0), 0, "@Autowired", "@Bean", "@Component", "@Service");
     }
