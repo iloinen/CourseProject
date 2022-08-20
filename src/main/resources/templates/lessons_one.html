@@ -13,20 +13,25 @@
     <div data-th-insert="fragments :: base_menu('lessons_one')"></div>
 
     <div id="content" data-th-object="${lesson}">
-        <h1 data-th-text="${lesson} == null ? 'No lesson' : ${lesson.title}"></h1>
+        <h1 data-th-text="${practice} == null ? 'No lesson' : ${practice.lessonTitle}"></h1>
 
         <p data-th-if="${errorMsg} != null" data-th-text="${errorMsg}"></p>
 
-        <div data-th-if="${lesson} != null">
-            <div data-th-each="task : ${lesson.tasks}">
-                <p data-th-text="${task.question}"></p>
-                <ul data-th-each="answer : ${task.answers}">
-                    <li>
-                        <span data-th-text="${answer.answer.text}"></span>
-                        <span data-th-text="' (' + ${answer.isCorrect} + ')'"></span>
-                    </li>
-                </ul>
-            </div>
+        <div data-th-if="${practice} != null">
+            <p data-th-text="${practice.next().question}"></p>
+
+            <form data-th-action="@{/lessons/tasks}" method="post">
+
+                <div data-th-each="answer : ${practice.next().answers}">
+                    <input type="radio"
+                           data-th-name="studentAnswer"
+                           data-th-value="${answer.text}"
+                           data-th-text="${answer.text}"/>
+                </div>
+
+                <input type="submit" value="Next" />
+
+                </form>
         </div>
     </div>
 

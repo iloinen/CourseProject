@@ -16,7 +16,7 @@ public class Lesson {
     @Column(length = 400)
     private String description;
 
-    @OneToMany(mappedBy = "lesson")
+    @OneToMany(mappedBy = "lesson", fetch = FetchType.EAGER)
     private List<Task> tasks;
 
     public Lesson() {}

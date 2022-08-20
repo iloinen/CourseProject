@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Checker</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div id="container">
+    <div data-th-insert="fragments :: base_menu('checkedAnswer')"></div>
+
+    <div id="content">
+        <h1>Checked</h1>
+
+        <p data-th-if="${errorMsg} != null" data-th-text="${errorMsg}"></p>
+        <p data-th-if="${errorMsg} == null" data-th-text="${isCorrect}"></p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
