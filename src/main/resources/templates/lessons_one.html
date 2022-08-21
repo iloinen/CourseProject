@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title>Lesson</title>
     <link rel="stylesheet" href="/style.css">
+
+    <script>
+        function setButton() {
+            document.getElementById("check_button").disabled = false;
+        }
+    </script>
 </head>
 
 <body>
@@ -17,7 +23,7 @@
 
         <p data-th-if="${errorMsg} != null" data-th-text="${errorMsg}"></p>
 
-        <div data-th-if="${practice} != null">
+        <div class="question_box" data-th-if="${practice} != null">
             <p data-th-text="${practice.next().question}"></p>
 
             <form data-th-action="@{/lessons/tasks}" method="post">
@@ -26,10 +32,11 @@
                     <input type="radio"
                            data-th-name="studentAnswer"
                            data-th-value="${answer.text}"
-                           data-th-text="${answer.text}"/>
+                           data-th-text="${answer.text}"
+                           onclick="setButton()"/>
                 </div>
 
-                <input type="submit" value="Next" />
+                <input id="check_button" type="submit" value="Next" disabled/>
 
                 </form>
         </div>

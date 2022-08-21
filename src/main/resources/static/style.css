@@ -4,6 +4,8 @@
 
 :root {
     --dark_gray: #2B2B2B;
+    --mid_gray: #44474A;
+    --gray: #808080;
     --light_gray: #A9B7C6;
     --blue: #287BDE;
     --orange: #CC7832;
@@ -11,7 +13,6 @@
     --green: #629755;
     --smooth_green: #485848;
     --purple: #9876AA;
-    --gray: #808080;
     --red: #BC3F3C;
 }
 
@@ -48,7 +49,7 @@ h1 {
     gap: 1px;
 }
 
-#menubar a, p, #logout input {
+#menubar a, #menubar p, #logout input {
     padding: 10px;
     margin: 0;
 }
@@ -140,4 +141,25 @@ th, td {
 
 th {
     background-color: var(--smooth_green);
+}
+
+.question_box {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--mid_gray);
+}
+
+.question_box p {
+    margin: 0;
+    padding: 0 0 20px 0;
+    font-weight: bold;
+}
+
+.question_box input {
+    margin-left: 30px;
+}
+
+.question_box #check_button {
+    margin: 20px 0 0 30px;
 }
